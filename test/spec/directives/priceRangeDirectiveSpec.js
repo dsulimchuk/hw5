@@ -49,5 +49,15 @@ describe('Directive: PriceRangeDirective', function() {
         expect(parseFloat(hPr.val())).toBe(200);
     });
 
-
+    //
+    //it('scope must reflect changes to input elements', function(){
+    //    lPr.val(999);
+    //    lPr.trigger('oninput');
+    //
+    //    scope.$apply();
+    //    var ff = childScope.lowPrice;
+    //    expect(childScope.lowPrice).toBe(999);
+    //
+    //    debugger;
+    //});
 })
