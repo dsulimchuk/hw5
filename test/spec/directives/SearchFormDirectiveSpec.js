@@ -15,10 +15,11 @@ describe('Directive: SearchFormDirective', function() {
         //dump(el);
 
     }));
-    it('Inner HTML after digest must start with <form name="searchForm"', function() {
-        //dump(el[0].innerHTML);
-        //dump(navbar.children());
+    it('Inner HTML after digest must containt  form name="searchForm"', function() {
+        //debugger;
+
         expect(el[0]).toBeDefined();
-        expect(el[0].innerHTML.indexOf('<form name="searchForm"')).toBe(0);
+        expect(el.find('form').attr('name')).toBe('searchForm');
+
     });
 })
