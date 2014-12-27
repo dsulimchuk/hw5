@@ -18,6 +18,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js',
+      'bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
 
@@ -26,11 +29,19 @@ module.exports = function(config) {
       'bower_components/lodash/dist/lodash.compat.js',
       'bower_components/restangular/dist/restangular.js',
 
+
+
       'app/scripts/**/*.js',
+      'app/views/partial/*.html',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
-
+    preprocessors: {
+      'app/views/partial/*.html': ['ng-html2js']
+    },
+    ngHtml2JsPreprocessor: {
+      stripPrefix:'app/'
+    },
     // list of files / patterns to exclude
     exclude: [],
 
@@ -67,7 +78,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO
+    logLevel: config.LOG_INFO,
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {
@@ -75,5 +86,6 @@ module.exports = function(config) {
     // },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
+
   });
 };

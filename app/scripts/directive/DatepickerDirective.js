@@ -10,6 +10,7 @@
           startDate: '-0d',
           todayBtn : true
         });
+
       }
     };
   };
