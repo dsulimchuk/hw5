@@ -5,7 +5,9 @@
     var _this = this;
     _this.products = [];
     productService.getProducts()
-        .then(function (data) {_this.products = data;});
+        .then(function (data) {console.log(data);_this.products = data;
+
+        });
   };
 
   HomeController.$inject = ['ProductService'];

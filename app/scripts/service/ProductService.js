@@ -15,19 +15,19 @@
     /** Returns the list of all available products on the server. */
     getProducts: function () {
       console.log('call getProd');
-      return this.Restangular.all('products').getList();
+      return this.Restangular.all('product/featured').getList();
 
     },
 
     /** Finds products with specified criteria. */
     find: function (params) {
       //console.log(params);
-      return this.Restangular.all('products').getList(params);
+      return this.Restangular.all('product/search').getList(params);
     },
 
     /** Finds products by its ID. */
     getProductById: function (productId) {
-      return this.Restangular.one('products', productId).get();
+      return this.Restangular.one('product', productId).get();
     }
   };
 

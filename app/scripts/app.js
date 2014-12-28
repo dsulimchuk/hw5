@@ -38,8 +38,20 @@
          });
     }])
     .config(['RestangularProvider', function (RestangularProvider) {
-      RestangularProvider.setBaseUrl('data');
-      RestangularProvider.setRequestSuffix('.json');
+      //RestangularProvider.setBaseUrl('data');
+        RestangularProvider.setBaseUrl('http://private-anon-44b976eb9-webauctionv1.apiary-mock.com');
+      //RestangularProvider.setRequestSuffix('.json');
+
+        RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
+          var extractedData;
+          if (operation === 'getList') {
+            extractedData = data.items;
+            extractedData.meta = data.items;
+          } else {
+            extractedData = data;
+          }
+          return extractedData;
+        });
     }])
     .run(['$rootScope', 'SearchFormService', function ($rootScope, SearchFormService) {
       $rootScope.$on('$routeChangeSuccess', function (event, currentRoute) {
